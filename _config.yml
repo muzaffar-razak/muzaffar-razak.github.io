@@ -1,0 +1,29 @@
+title: Adam's Personal Website
+description: Made by Adam Muzaffar Abd Razak
+baseurl: ""
+url: https://muzaffar-razak.github.io
+
+theme: hacked-jekyll
+
+exclude:
+  - LICENSE
+  - README.md
+  - Gemfile
+  - vendor/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  sourcemap: never
+
+color_bg: gray-0
+
+color_punct: gray-6
+
+color_key: gray-9
+
+color_value: gray-9
+
+color_hover: indigo-8 
