@@ -1,6 +1,6 @@
 - key: Name
   value: Adam Muzaffar Abd Razak
-- key: Description
+- key: About
   value:
     - I am a student,
     - developer,
@@ -15,7 +15,8 @@
   url: https://1drv.ms/b/c/50af6de891a01359/IQDYVaIcpOP3SqW3x1lHKEk6Ab_bVI61iuK-DSkD_jwVYZI?e=f418Mz
 - key: Location
   value:
-    - Selangor / Kuala Lumpur
+    - Kuala Lumpur
+    - Selangor
 - key: Email
   value: adam.abd-razak@outlook.my
   url: "mailto:adam.abd-razak@outlook.my"
