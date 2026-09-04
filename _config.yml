@@ -3,7 +3,7 @@ description: Made by Adam Muzaffar Abd Razak
 baseurl: ""
 url: https://muzaffar-razak.github.io
 
-theme: hacked-jekyll
+remote_theme: piazzai/hacked-jekyll
 
 exclude:
   - LICENSE
@@ -14,6 +14,7 @@ exclude:
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-remote-theme
 
 sass:
   sourcemap: never
