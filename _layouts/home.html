@@ -1,66 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+---
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ site.title }}</title>
+<div id="json">
+  {% for item in site.data.json %}
+  <div class="my ms">
+    {% if item.typed %}
+    <div id="strings" style="clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px;">
+      {% for sub in item.value %}<span>{{ sub }}</span>{% endfor %}
+    </div>
+    "<span class="key">{{ item.key }}</span>": [
+    <p class="ms">
+      "<span class="value"><span id="typed"></span></span>"
+    </p>
+    ]{% unless forloop.last %},{% endunless %}
 
-  {% seo %}
+    {% elsif item.key == "Name" %}
+    "<span class="key">{{ item.key }}</span>":
+    "<h1 class="value" style="display: inline; font-size: inherit; font-weight: inherit; margin: 0;">{{ item.value }}</h1>"{% unless forloop.last %},{% endunless %}
 
-  <!-- GEO / Entity Schema (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Adam Muzaffar Abd Razak",
-    "url": "https://muzaffar.works/",
-    "email": "mailto:adam.abd-razak@outlook.my",
-    "jobTitle": "Student & Technical Writer",
-    "knowsAbout": [
-      "Electrical and Electronics Engineering",
-      "Academic Publications"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kuala Lumpur",
-      "addressRegion": "Selangor",
-      "addressCountry": "MY"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/muzaffar-razak",
-      "https://www.github.com/muzaffar-razak",
-      "https://orcid.org/0009-0005-4992-9616",
-      "https://www.credly.com/users/muzaffar-razak"
-    ]
-  }
-  </script>
+    {% elsif item.value.first %}
+    "<span class="key">{{ item.key }}</span>": [
+    {% for sub in item.value %}
+    <p class="ms">
+      {% if sub.url %}
+      "<a class="value" href="{{ sub.url }}" target="_self">{{ sub.value }}</a>"{% unless forloop.last %},{% endunless %}
+      {% else %}
+      "<span class="value">{{ sub }}</span>"{% unless forloop.last %},{% endunless %}
+      {% endif %}
+    </p>
+    {% endfor %}
+    ]{% unless forloop.last %},{% endunless %}
 
-  <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.ico' | relative_url }}" />
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/apple-touch-icon.png' | relative_url }}" />
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32x32.png' | relative_url }}" />
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/favicon-16x16.png' | relative_url }}" />
-  <link rel="manifest" href="{{ '/assets/site.webmanifest' | relative_url }}" />
-  <link rel="stylesheet" href="{{ '/assets/css/normalize.css' | relative_url }}" />
-  <link rel="stylesheet" href="{{ '/assets/css/open-color.css' | relative_url }}" />
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
-  <script src="{{ '/assets/js/typed.umd.js' | relative_url }}"></script>
-</head>
+    {% elsif item.url %}
+    "<span class="key">{{ item.key }}</span>":
+    "<a class="value" href="{{ item.url }}" target="_self">{{ item.value }}</a>"{% unless forloop.last %},{% endunless %}
 
-<body>
-  <main>
-    {{ content }}
-  </main>
-  <script>
-    var typed = new Typed("#typed", {
-      stringsElement: "#strings",
-      backSpeed: 10,
-      typeSpeed: 30,
-      backDelay: 1000,
-      loop: true,
-      smartBackspace: true,
-    });
-  </script>
-</body>
-
-</html>
+    {% else %}
+    "<span class="key">{{ item.key }}</span>":
+    "<span class="value">{{ item.value }}</span>"{% unless forloop.last %},{% endunless %}
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
