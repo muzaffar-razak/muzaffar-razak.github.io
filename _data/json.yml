@@ -1,14 +1,11 @@
 - key: Name
   value: Adam Muzaffar Abd Razak
 - key: About
+  value: I am an EEE student
+- key: Interests
   value:
-    - I am a student,
-    - developer,
-    - business user,
-    - and technical writer
-    - My focus includes
-    - climate technologies
-    - and green innovation
+    - clean energy technology
+    - energy policy
   typed: true
 - key: CV
   value: blank.pdf
